@@ -1,0 +1,52 @@
+    .side-headline {
+      font-size: 16px;
+      color: #000000;
+      font-weight: 600;
+      margin-left: 22px;
+    }
+    .order {
+      padding: 0 25px 0 25px;
+      .form {
+        font-size: 16px;
+        color: #000000;
+        font-weight: 600;
+        margin-left: -8px;
+      }
+      .select-box {
+        border: 1px solid #000000;
+        padding: 0 10px 0 10px;
+        border-radius: 4px;
+        margin-bottom: 2rem;
+        .data-holder {
+          padding-left: unset;
+          color: #000000;
+   
+          .item-inner {
+            border-bottom: 0 !important;
+          }
+          ion-label {
+            color: #000000;
+            line-height: 28px;
+          }
+          
+          .icons { //pour l'horloge et calendrier
+            float: right;
+            font-size: 1.5em;
+            color: #0a0a0a;
+            border-bottom: none !important;
+          }
+        }
+      }
+    }
+    
+   
+        .login-btn {
+            width: 70%;
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            height: 3.3rem;  
+                    } 
+      
+
+      

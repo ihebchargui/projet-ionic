@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>booking History</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard" text="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+ 
+
+  
+  
+
+
+  <ion-card class="card_content" *ngFor="let item of reservationList" >
+    <span *ngIf="!item.isEdit; else elseBlock">
+    <ion-list class="overlay_top">
+      <h2 class="id" padding> <ion-icon name="cafe"></ion-icon>  Booking History </h2>
+      <h2 class="id" padding>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.Name}} </h2>
+    </ion-list>
+
+    
+      <ion-card-content class="overlay_content">
+
+       
+      
+     
+
+        <ion-row class="details" text-center>
+          <ion-col col-6>
+            <h1 class="persons">{{item.Person}}</h1>
+            <p class="subline">No. of Persons</p>
+          </ion-col>
+          <ion-col col-6>
+            <h1 class="persons">{{item.Phone}}</h1>
+            <p class="subline">phone number</p>
+          </ion-col>
+        </ion-row>
+
+        <ion-row justify-content-center padding>
+          <ion-col col-6 class="date">
+            <ion-icon name="calendar" class="icons"></ion-icon>
+            <h3 class="descrption">{{item.date}}</h3>
+          </ion-col>
+          <ion-col col-6 class="time">
+            <ion-icon name="time" class="icons"></ion-icon>
+            <h3 class="descrption">{{item.Time}}</h3>
+          </ion-col>
+        </ion-row>
+
+      
+
+        <ion-button shape="round" color="secondary" size="small" (click)="Ajouter(item)">
+          <ion-icon size="small" slot="icon-only" name="create"></ion-icon>
+
+        </ion-button>
+        <ion-button shape="round" color="danger" size="small" (click)="Supprimer(item.id)">
+          <ion-icon size="small" slot="icon-only" name="trash"></ion-icon>
+
+        </ion-button>
+      </ion-card-content>
+    </span>
+
+<ng-template #elseBlock>
+  <ion-card-header>
+    <ion-card-title>
+         <ion-grid>
+          <ion-row><ion-col> Ajouter</ion-col></ion-row>
+         <ion-row><ion-col>
+            <ion-button fill="solid" color="success" size="small" (click)="Update(item)">
+                  Mettre à jour
+            </ion-button>
+          </ion-col></ion-row>
+          <ion-row><ion-col><ion-button fill="solid" color="medium" size="small" (click)="item.isEdit = false">
+                    Supprimer
+            </ion-button>
+          </ion-col></ion-row>
+         </ion-grid>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item><ion-label><strong>Name</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditName"></ion-input>
+    </ion-item>
+    <ion-item><ion-label><strong>Phone</strong></ion-label>
+          <ion-input type="text" [(ngModel)]="item.EditPhone"></ion-input>
+    </ion-item>
+    
+    <ion-item><ion-label><strong> Date</strong></ion-label>
+      <ion-input type="text" [(ngModel)]="item.EditDate"></ion-input>
+    </ion-item>
+
+    <ion-item><ion-label><strong> Time</strong></ion-label>
+      <ion-input type="text" [(ngModel)]="item.EditTime"></ion-input>
+</ion-item>
+
+<ion-item><ion-label><strong> Person</strong></ion-label>
+  <ion-input type="text" [(ngModel)]="item.EditPerson"></ion-input>
+</ion-item>
+    
+    </ion-card-content>
+</ng-template>
+
+</ion-card>
+
+</ion-content>
+
+

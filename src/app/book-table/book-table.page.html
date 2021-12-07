@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Book a Table</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard" text="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="content-wrap">
+
+ 
+
+  
+  <form [formGroup]="reservationForm" (ngSubmit)="Creer()">
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input formControlName="Phone"></ion-input>
+    </ion-item>
+
+    <div class="side-headline">
+      <p class="heading"> Select Date and Time to Book Table!</p>
+    </div>
+
+    <div class="order">
+      <ion-label class="form">&nbsp;&nbsp;Select date:</ion-label>
+      <div class="select-box">
+    <ion-item class="data-holder">
+      
+      <ion-datetime  display-format="MM/DD/YYYY" formControlName="Date"></ion-datetime>
+      <ion-label>
+        <ion-icon name="calendar" class="icons"></ion-icon>
+      </ion-label>
+    </ion-item>
+    
+    </div>
+    </div>
+
+
+    <div class="order">
+      <ion-label class="form">&nbsp;&nbsp;Select Time:</ion-label>
+      <div class="select-box">
+    <ion-item class="data-holder">
+      
+      <ion-datetime display-format="HH:mm A" picker-format="h:mm A"  formControlName="Time"></ion-datetime>
+      <ion-label>
+        <ion-icon name="time" class="icons"></ion-icon>
+      </ion-label>
+    </ion-item>
+
+  </div>
+</div>
+
+
+
+<div class="order">
+  <ion-label class="form">&nbsp;&nbsp;Select No. of Guests:</ion-label>
+  <div class="select-box">
+    <ion-item class="data-holder">
+      <!-- <ion-item> -->
+      <ion-label>No. of Guests&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</ion-label>
+      <ion-select formControlName="Person">
+        <ion-select-option  value="1">1 person</ion-select-option>
+        <ion-select-option  value="2">2 person</ion-select-option>
+        <ion-select-option  value="3">3 person</ion-select-option>
+        <ion-select-option  value="4">4 person</ion-select-option>
+        <ion-select-option  value="5">5 person</ion-select-option>
+        <ion-select-option  value="5+">5+ person</ion-select-option>
+      </ion-select>
+      <!-- </ion-item> -->
+    </ion-item>
+  </div>
+  <!--select-box-->
+</div>
+
+
+
+
+
+<div class="btn-wrap">
+      <button color="danger" shape="round" expand="block"  class="login-btn" (click)="Creer()" [disabled]="reservationForm.invalid">
+        Reserve a Table
+      </button>
+    </div>
+
+  </form>
+
+
+
+  
+
+</ion-content>
+
+

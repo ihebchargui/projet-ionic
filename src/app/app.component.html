@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="content1">
+      
+      <ion-content class="sidebar-menu">
+
+        <ion-row class="img-name-row">
+          <ion-col>
+            <img class="user-img" src="assets/images/logo.png"/>
+            
+          </ion-col>
+        </ion-row>
+        
+
+        <ion-list *ngFor="let pages of navigate">
+        <ion-menu-toggle auto-hide="true">
+          <ion-item [routerLink]="pages.url" routerDirection="forward">
+              <ion-icon [name]="pages.icon" slot="start"></ion-icon>
+                 {{pages.title}} 
+          </ion-item>
+        </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+<ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>
